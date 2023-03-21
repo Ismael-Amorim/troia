@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,14 +19,14 @@
         <div class="msgAlertErroLogin">
         <span id="msgAlertErroLogin" style="text-align: center !important; color:#fff;"></span>
         </div>
-        <input for="cpf" id="cpf" name="cpf" type="text" placeholder="Digite seu CPF"><br />
-        <input for="senha" id="senha" name="senha" type="password" placeholder="Digite sua senha"><br />
+        <input id="cpf" name="cpf" type="text" placeholder="Digite seu CPF"><br />
+        <input id="senha" name="senha" type="password" placeholder="Digite sua senha"><br />
         <input type="submit" value="Entrar" class="full-rounded" id="entrar">
     </div>
     </form>
     </div>
 
-    <script src="js/custom.js"> </script>
+    <script src="custom.js"> </script>
 </body>
 
 </html>
