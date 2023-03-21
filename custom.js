@@ -1,26 +1,19 @@
-const loginForm = document.getElementById("login-usuario")
-const msgAlertErroLogin = document.getElementById("msgAlertErroLogin")
+<?php
 
-loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault()
+include_once "conexao.php";
 
-    /*if (document.getElementById("cpf").value === "") {
-        msgAlertErroLogin.innerHTML = "<div class='msgAlertErroLogin'>Erro: Necessário preencher o campo usuário!</div>"
-    } else if (document.getElementById("senha").value === "") {
-        msgAlertErroLogin.innerHTML = "<div class='msgAlertErroLogin'>Erro: Necessário preencher o campo senha!</div>"
-    } else {*/
-    const dadosForm = new FormData(loginForm)
+$dados_login = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-    const dados = await fetch("validar.php", {
-        method: "POST",
-        body: dadosForm
-    })
-
-    const resposta = await dados.json()
-
-    console.log(resposta)
+if(empty($dados_login['cpf'])){
+    $retorna = ['erro'=> true, 'msg' => "<div class='msgAlertErroLogin'>Erro: Necessário preencher o campo usuário!</div>"];
+}elseif(empty($dados_login['senha'])){
+    $retorna = ['erro'=> true, 'msg' => "<div class='msgAlertErroLogin'>Erro: Necessário preencher o campo senha!</div>"];
+}
+else{
+    $retorna = ['erro'=> false, 'msg' => "<div class='msgAlertErroLogin'>Validar!</div>"];
+}
 
 
+echo json_encode($retorna);
 
-    //}
-})
+
